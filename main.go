@@ -24,9 +24,9 @@ func simulate(change bool, iterations int) int {
 	wins := 0
 	for i := 0; i < iterations; i++ {
 		doors := []int{1, 2, 3}
-		priceDoor := doors[getRandomDoorIndex(len(doors))]
-		playerSelectedDoor := doors[getRandomDoorIndex(len(doors))]
-		doors = showHostRemovesDoor(doors, priceDoor, playerSelectedDoor)
+		priceDoor := pickRandom(doors)
+		playerSelectedDoor := pickRandom(doors)
+		doors = removeDoor(doors, priceDoor, playerSelectedDoor)
 		if change {
 			playerSelectedDoor = changeDoor(playerSelectedDoor, doors)
 		}
@@ -37,7 +37,10 @@ func simulate(change bool, iterations int) int {
 	}
 	return wins
 }
-func showHostRemovesDoor(doors []int, priceDoor int, playerSelectedDoor int) []int {
+func pickRandom(doors []int) int {
+	return doors[getRandomDoorIndex(len(doors))]
+}
+func removeDoor(doors []int, priceDoor int, playerSelectedDoor int) []int {
 	var rmIndex int
 	for i, v := range doors {
 		if v != priceDoor && v != playerSelectedDoor {
