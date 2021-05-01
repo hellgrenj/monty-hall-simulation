@@ -7,17 +7,14 @@ import (
 )
 
 func main() {
-
-	fmt.Println("Monty Hall Paradox Simulation")
-	numberOfIterations := 1_000_000
+	fmt.Println("Monty Hall Problem Simulation")
+	numberOfIterations := 1_00_000
 	var playerChangesDoor bool
 
-	fmt.Printf("\nsimulating the player staying with her original pick (%d iteration)\n", numberOfIterations)
 	playerChangesDoor = false
 	wins := simulate(playerChangesDoor, numberOfIterations)
 	fmt.Printf("player won %d out of %d games when staying with original pick\n", wins, numberOfIterations)
 
-	fmt.Printf("\nsimulating the player changing doors (%d iteration)\n", numberOfIterations)
 	playerChangesDoor = true
 	wins = simulate(playerChangesDoor, numberOfIterations)
 	fmt.Printf("player won %d out of %d games when changing door\n", wins, numberOfIterations)
