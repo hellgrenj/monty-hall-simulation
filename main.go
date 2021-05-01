@@ -8,7 +8,7 @@ import (
 
 func main() {
 	fmt.Println("Monty Hall Problem Simulation")
-	numberOfIterations := 1_00_000
+	numberOfIterations := 100_000
 	var playerChangesDoor bool
 
 	playerChangesDoor = false
